@@ -2,6 +2,9 @@
 A gRPC server and client that can do maths
 
 ## Try it out
+If you dont have Go installed then you can download the latest binary [release](https://github.com/nayas360/math_over_grpc/releases)
+else, 
+
 To get the server, do
 >$ go get github.com/nayas360/math_over_grpc/cmd/mserver
 
