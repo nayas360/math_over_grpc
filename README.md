@@ -17,7 +17,7 @@ To get both do
 Run the Server by
 >$ mserver
 
-Query the server from the client
+Query the server from the client in another terminal
 >$ mclient -op add 10 20  
 $ mclient -op sub 20 30  
 $ mclient -op mul 30 40  
