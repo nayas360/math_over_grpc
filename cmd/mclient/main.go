@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 
+	"fmt"
 	mclient "github.com/nayas360/math_over_grpc"
 	"google.golang.org/grpc"
 )
@@ -36,5 +37,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not do operation: %s", err)
 	}
-	log.Printf("Result: %s", resp)
+	fmt.Print(resp)
 }
