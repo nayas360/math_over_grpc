@@ -1,0 +1,32 @@
+/*
+The math over grpc api definition
+*/
+
+syntax = "proto3";
+
+service MathOverGrpc {
+    //supports only one method
+    rpc DoOperation (OpRequest) returns (OpResponse) {
+    }
+}
+
+// the request needs the type of operation and the operands
+message OpRequest {
+    Opcode Op = 1;
+    string Unary = 2;
+    string Binary = 3;
+}
+
+// response only returns the result
+message OpResponse {
+    string Result = 1;
+}
+
+// supported operaions
+enum Opcode {
+    NOP = 0;
+    ADD = 1;
+    SUB = 2;
+    MUL = 3;
+    DIV = 4;
+}
