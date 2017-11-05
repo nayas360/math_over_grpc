@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
-	"fmt"
 	mclient "github.com/nayas360/math_over_grpc"
 	"google.golang.org/grpc"
 )

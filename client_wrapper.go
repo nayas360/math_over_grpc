@@ -37,6 +37,7 @@ func (mc *MApiClient) Add(Unary string, Binary string) (string, error) {
 	}
 	return res.Result, nil
 }
+
 // helper methods wrapping the do operation rpc
 func (mc *MApiClient) Sub(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_SUB, Unary, Binary)
@@ -45,6 +46,7 @@ func (mc *MApiClient) Sub(Unary string, Binary string) (string, error) {
 	}
 	return res.Result, nil
 }
+
 // helper methods wrapping the do operation rpc
 func (mc *MApiClient) Mul(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_MUL, Unary, Binary)
@@ -53,6 +55,7 @@ func (mc *MApiClient) Mul(Unary string, Binary string) (string, error) {
 	}
 	return res.Result, nil
 }
+
 // helper methods wrapping the do operation rpc
 func (mc *MApiClient) Div(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_DIV, Unary, Binary)

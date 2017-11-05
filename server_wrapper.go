@@ -2,8 +2,8 @@ package math_over_grpc
 
 import (
 	"fmt"
-	"net"
 	"math/big"
+	"net"
 
 	pb "github.com/nayas360/math_over_grpc/mapi"
 	"golang.org/x/net/context"
@@ -40,7 +40,7 @@ func (ms *MApiServer) Serve() error {
 func (ms *MApiServer) DoOperation(ctx context.Context, in *pb.OpRequest) (*pb.OpResponse, error) {
 	switch in.Op {
 	/*case pb.Opcode_NOP:
-		return nil, fmt.Errorf("no operation selected")*/
+	return nil, fmt.Errorf("no operation selected")*/
 	case pb.Opcode_ADD:
 		Unary, _ := new(big.Float).SetString(in.Unary)
 		Binary, _ := new(big.Float).SetString(in.Binary)
