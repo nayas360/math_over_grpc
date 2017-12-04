@@ -37,5 +37,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not do operation: %s", err)
 	}
-	fmt.Print(resp)
+	fmt.Println(resp)
 }
