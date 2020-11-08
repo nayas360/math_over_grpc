@@ -1,17 +1,18 @@
 package math_over_grpc
 
 import (
+	"context"
 	"fmt"
 	"math/big"
 	"net"
 
 	pb "github.com/nayas360/math_over_grpc/mapi"
-	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
 
 // A basic abstraction over the grpc server construct
 type MApiServer struct {
+	pb.UnimplementedMathOverGrpcServer
 	listener net.Listener
 	server   *grpc.Server
 }
@@ -23,7 +24,7 @@ func NewMApiServer(address string, opts ...grpc.ServerOption) (*MApiServer, erro
 	if e != nil {
 		return nil, e
 	}
-	g := &MApiServer{l, s}
+	g := &MApiServer{listener: l, server: s}
 	pb.RegisterMathOverGrpcServer(s, g)
 	return g, nil
 }
