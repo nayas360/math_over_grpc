@@ -1,11 +1,12 @@
 module github.com/nayas360/math_over_grpc
 
-go 1.15
+go 1.16
 
 require (
-	github.com/golang/protobuf v1.4.3
-	golang.org/x/net v0.0.0-20201031054903-ff519b6c9102
-	google.golang.org/grpc v1.33.2
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.0.1 // indirect
-	google.golang.org/protobuf v1.25.0
+	github.com/pkg/errors v0.9.1
+	golang.org/x/net v0.0.0-20210716203947-853a461950ff
+	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
+	google.golang.org/genproto v0.0.0-20210719143636-1d5a45f8e492 // indirect
+	google.golang.org/grpc v1.39.0
+	google.golang.org/protobuf v1.27.1
 )

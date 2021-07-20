@@ -6,13 +6,13 @@ import (
 	"google.golang.org/grpc"
 )
 
-// basic client construct
+// MApiClient basic client construct
 type MApiClient struct {
 	conn   *grpc.ClientConn
 	client pb.MathOverGrpcClient
 }
 
-// returns a new client
+// NewMApiClient returns a new client
 func NewMApiClient(address string, opts ...grpc.DialOption) (*MApiClient, error) {
 	cn, err := grpc.Dial(address, opts...)
 	if err != nil {
@@ -29,7 +29,7 @@ func (mc *MApiClient) doOperation(Op pb.Opcode, Unary string, Binary string) (*p
 	return mc.client.DoOperation(ctx, &pb.OpRequest{Op: Op, Unary: Unary, Binary: Binary})
 }
 
-// helper methods wrapping the do operation rpc
+// Add helper methods wrapping the do operation rpc
 func (mc *MApiClient) Add(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_ADD, Unary, Binary)
 	if err != nil {
@@ -38,7 +38,7 @@ func (mc *MApiClient) Add(Unary string, Binary string) (string, error) {
 	return res.Result, nil
 }
 
-// helper methods wrapping the do operation rpc
+// Sub helper methods wrapping the do operation rpc
 func (mc *MApiClient) Sub(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_SUB, Unary, Binary)
 	if err != nil {
@@ -47,7 +47,7 @@ func (mc *MApiClient) Sub(Unary string, Binary string) (string, error) {
 	return res.Result, nil
 }
 
-// helper methods wrapping the do operation rpc
+// Mul helper methods wrapping the do operation rpc
 func (mc *MApiClient) Mul(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_MUL, Unary, Binary)
 	if err != nil {
@@ -56,7 +56,7 @@ func (mc *MApiClient) Mul(Unary string, Binary string) (string, error) {
 	return res.Result, nil
 }
 
-// helper methods wrapping the do operation rpc
+// Div helper methods wrapping the do operation rpc
 func (mc *MApiClient) Div(Unary string, Binary string) (string, error) {
 	res, err := mc.doOperation(pb.Opcode_DIV, Unary, Binary)
 	if err != nil {
@@ -65,7 +65,7 @@ func (mc *MApiClient) Div(Unary string, Binary string) (string, error) {
 	return res.Result, nil
 }
 
-// wrapper to close the connection
-func (mc *MApiClient) Close() {
-	mc.conn.Close()
+// Close wrapper to close the connection
+func (mc *MApiClient) Close() error {
+	return mc.conn.Close()
 }

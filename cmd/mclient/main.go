@@ -20,7 +20,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not create MApiClient for server at address %s: %s", *address, err)
 	}
-	defer client.Close()
+	defer func(client *mclient.MApiClient) {
+		if err := client.Close(); err != nil {
+			log.Fatalf("could not close the client, %s", err)
+		}
+	}(client)
 	var resp string
 	switch *operation {
 	case "add":

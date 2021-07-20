@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // MathOverGrpcClient is the client API for MathOverGrpc service.
@@ -64,7 +65,7 @@ type UnsafeMathOverGrpcServer interface {
 }
 
 func RegisterMathOverGrpcServer(s grpc.ServiceRegistrar, srv MathOverGrpcServer) {
-	s.RegisterService(&_MathOverGrpc_serviceDesc, srv)
+	s.RegisterService(&MathOverGrpc_ServiceDesc, srv)
 }
 
 func _MathOverGrpc_DoOperation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -85,7 +86,10 @@ func _MathOverGrpc_DoOperation_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-var _MathOverGrpc_serviceDesc = grpc.ServiceDesc{
+// MathOverGrpc_ServiceDesc is the grpc.ServiceDesc for MathOverGrpc service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MathOverGrpc_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "math_over_grpc.MathOverGrpc",
 	HandlerType: (*MathOverGrpcServer)(nil),
 	Methods: []grpc.MethodDesc{
